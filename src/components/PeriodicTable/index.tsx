@@ -1,16 +1,22 @@
 import { useState } from 'react';
 
-import data from '@app/periodic-table-data.json';
+import { Element } from '@app/interfaces';
 import '@app/components/PeriodicTable/PeriodicTable.css';
 
-export default function PeriodicTable() {
+interface PeriodicTableProps {
+  periodicTableData: Element[];
+}
+
+export default function PeriodicTable({
+  periodicTableData,
+}: PeriodicTableProps) {
   const [selectedBlock, setSelectedBlock] = useState('');
 
   const addBackgroundHandler = (block: string) => {
     setSelectedBlock(block);
   };
 
-  const element = data.map((element) => {
+  const element = periodicTableData.map((element) => {
     const blockStyle = ['element'];
 
     if (selectedBlock === element.block) {
