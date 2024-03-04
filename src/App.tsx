@@ -13,10 +13,11 @@ export default function App() {
   };
 
   const periodicTableData = isInverted ? getInvertedPeriodicTable(data) : data;
+  const buttonText = isInverted ? 'Revert' : 'Invert';
 
   return (
     <div className='app'>
-      <button onClick={invertTableBidirectionallyHandler}>Click me</button>
+      <button onClick={invertTableBidirectionallyHandler}>{buttonText}</button>
       <PeriodicTable periodicTableData={periodicTableData} />
     </div>
   );
